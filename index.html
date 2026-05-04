@@ -268,14 +268,17 @@
       backdrop-filter: blur(10px);
       display: grid;
       gap: 7px;
-      overflow: visible;
+      overflow: hidden;
     }
 
     .toolbar-row {
       display: flex;
       flex-wrap: nowrap;
       gap: 7px;
-      overflow: hidden;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
     }
 
     .chip {
@@ -519,6 +522,18 @@
       .page { width: min(100% - 24px, 1320px); padding-top: 18px; }
       .brand-summary { grid-template-columns: 1fr; }
       .location-grid { grid-template-columns: 1fr; }
+      .summary-block.sa .location-grid { grid-template-columns: 1fr; }
+      .summary-block.sa .location-row,
+      .summary-block.fe .location-row {
+        min-height: 50px;
+        padding: 10px 12px;
+      }
+      .summary-block.sa .location-row strong,
+      .summary-block.fe .location-row strong {
+        font-size: 12px;
+        white-space: normal;
+        line-height: 1.15;
+      }
       .schedule-head { grid-template-columns: 1fr; }
       .date-badge { justify-self: start; }
     }
